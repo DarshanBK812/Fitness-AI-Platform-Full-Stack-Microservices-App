@@ -10,84 +10,85 @@
 > **AI-powered fitness tracking platform** built with **Spring Boot microservices** and a **React UI**, featuring AI-driven recommendations, centralized configuration, and robust backend communication.
 
 ---
-
 ## 🚀 Features
-- **User Management** – Registration, authentication (Keycloak / JWT ready)
-- **Activity Tracking** – Log and manage cycling, running, and more
-- **AI Recommendations** – Personalized activity suggestions
-- **Service Discovery** – **Eureka Server**
-- **Centralized Config** – **Spring Cloud Config Server**
-- **API Gateway** – Intelligent routing & filtering
-- **Messaging** – **RabbitMQ**
-- **Databases** – **PostgreSQL** & **MongoDB**
-- **Frontend** – **React + Material UI**
+- **User Management** – Registration, authentication (via Keycloak / JWT integration).
+- **Activity Tracking** – Log and manage cycling, running, and other activities.
+- **AI Recommendations** – Personalized suggestions based on activity history.
+- **Service Discovery** – Managed via **Eureka Server**.
+- **Centralized Config** – Spring Cloud **Config Server** for environment configs.
+- **API Gateway** – Routing, filtering, and security.
+- **Messaging** – **RabbitMQ** for async inter-service communication.
+- **Databases** – **PostgreSQL** and **MongoDB**.
+- **Frontend** – **React** with Material UI.
 
 ---
 
-## 🏗 Architecture Overview
+## 🏗 Architecture
 
-![Architecture](./architecture.png)
+[ React UI ] <----> [ API Gateway ] <----> [ Microservices ]
+↙
+Config Server | Eureka Server
+↘
+RabbitMQ / Databases
 
-graph TD;
-    UI[React UI] --> GATEWAY[API Gateway]
-    GATEWAY --> USER[User Service]
-    GATEWAY --> ACTIVITY[Activity Service]
-    GATEWAY --> AI[AI Recommendation Service]
-    CONFIG[Config Server] --> USER
-    CONFIG --> ACTIVITY
-    CONFIG --> AI
-    USER --> POSTGRES[(PostgreSQL)]
-    ACTIVITY --> MONGO[(MongoDB)]
-    AI --> MONGO
-    USER <--> EUREKA[Eureka Server]
-    ACTIVITY <--> EUREKA
-    AI <--> EUREKA
-    USER --> MQ[RabbitMQ]
-    ACTIVITY --> MQ
-    AI --> MQ
-📂 Project Structure
-bash
+markdown
 Copy
 Edit
+
+**Services included:**
+1. **`eureka`** – Service discovery.
+2. **`gateway`** – API Gateway (Spring Cloud Gateway).
+3. **`configserver`** – Centralized configuration.
+4. **`userservice`** – Manages users (PostgreSQL).
+5. **`activityservice`** – Tracks activities (MongoDB/PostgreSQL).
+6. **`aiservice`** – AI-based recommendation engine (MongoDB + RabbitMQ).
+7. **`fitness-ui`** – React frontend.
+
+---
+
+## 📂 Project Structure
+
 microservice_fitness/
-├── eureka/          # Service discovery
-├── gateway/         # API Gateway
-├── configserver/    # Centralized config
-├── userservice/     # User management
-├── activityservice/ # Activity tracking
-├── aiservice/       # AI recommendations
-└── fitness-ui/      # React frontend
-🛠 Tech Stack
-Backend:
+├── activityservice/
+├── aiservice/
+├── configserver/
+├── eureka/
+├── fitness-ui/
+├── gateway/
+└── userservice/
 
-Java 17, Spring Boot 3.x, Spring Cloud
-
-Spring Data JPA / Hibernate
-
-RabbitMQ, Eureka, Config Server, API Gateway
-
-PostgreSQL, MongoDB
-
-Frontend:
-
-React.js, Material UI
-
-DevOps / Tools:
-
-Maven, Git, Postman
-
-Keycloak / JWT Authentication
-
-⚙️ Run Locally
-1️⃣ Start Infrastructure
-Run PostgreSQL & MongoDB
-
-Start RabbitMQ locally or via Docker
-
-2️⃣ Start Services
-bash
+yaml
 Copy
 Edit
+
+---
+
+## 🛠 Tech Stack
+
+**Backend:**
+- Java 17, Spring Boot 3.x, Spring Cloud
+- Spring Data JPA / Hibernate
+- RabbitMQ, Eureka, Config Server, API Gateway
+- PostgreSQL, MongoDB
+
+**Frontend:**
+- React.js, Material UI
+
+**DevOps / Tools:**
+- Maven, Git, Postman
+- Keycloak / JWT Authentication
+
+---
+
+## ⚙️ Run Locally
+
+### 1️⃣ Start Infrastructure
+- Run PostgreSQL and MongoDB.
+- Start RabbitMQ (locally or via Docker).
+
+### 2️⃣ Start Services
+In order:
+```bash
 cd configserver && mvn spring-boot:run
 cd eureka && mvn spring-boot:run
 cd gateway && mvn spring-boot:run
@@ -102,7 +103,10 @@ cd fitness-ui
 npm install
 npm start
 📸 Screenshots
-Add images of UI pages here
+(Add images of UI pages here)
+
+📜 License
+This project is licensed under the MIT License.
 
 👤 Author
 Darshan B K
@@ -111,6 +115,5 @@ Darshan B K
 
 💻 GitHub
 
-yaml
 Copy
 Edit
