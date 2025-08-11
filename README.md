@@ -26,7 +26,8 @@
 
 ## 🏗 Architecture Overview
 
-```mermaid
+![Architecture](./architecture.png)
+
 graph TD;
     UI[React UI] --> GATEWAY[API Gateway]
     GATEWAY --> USER[User Service]
