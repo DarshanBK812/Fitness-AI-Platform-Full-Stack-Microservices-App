@@ -1,0 +1,53 @@
+spring:
+  main:
+    web-application-type: reactive
+
+  application:
+    name: api-gateway
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://127.0.0.1:8180/realms/darshanbk812
+
+
+
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/api/users/**
+        - id: activity-service
+          uri: lb://ACTIVITY-SERVICE
+          predicates:
+            - Path=/api/activities/**
+        - id: ai-service
+          uri: lb://AI-SERVICE
+          predicates:
+            - Path=/api/ai/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8080
+
+#logging:
+#  level:
+#    org.springframework.security.oauth2: DEBUG
+#    org.springframework.cloud: DEBUG
+#    org.springframework.boot: DEBUG
+#    org.springframework.security: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info,env
+  endpoint:
+    refresh:
+      enabled: true
