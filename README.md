@@ -66,7 +66,7 @@ Edit
 ## 🛠 Tech Stack
 
 **Backend:**
-- Java 17, Spring Boot 3.x, Spring Cloud
+- Java 24, Spring Boot 3.x, Spring Cloud
 - Spring Data JPA / Hibernate
 - RabbitMQ, Eureka, Config Server, API Gateway
 - PostgreSQL, MongoDB
@@ -103,7 +103,7 @@ cd fitness-ui
 npm install
 npm start
 📸 Screenshots
-(Add images of UI pages here)
+(comming soon)
 
 📜 License
 This project is licensed under the MIT License.
