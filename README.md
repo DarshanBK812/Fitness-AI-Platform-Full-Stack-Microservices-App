@@ -1,4 +1,4 @@
-# 🏋️‍♂️ Fitness AI Platform – Full Stack Microservices App
+9# 🏋️‍♂️ Fitness AI Platform – Full Stack Microservices App
 
 [![Java](https://img.shields.io/badge/Java-24-blue)](https://www.oracle.com/java/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen)](https://spring.io/projects/spring-boot)
@@ -115,5 +115,3 @@ Darshan B K
 
 💻 GitHub
 
-Copy
-Edit
